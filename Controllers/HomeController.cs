@@ -13,7 +13,7 @@ namespace SiteRBC.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Tour()
         {
             return View();
         }
