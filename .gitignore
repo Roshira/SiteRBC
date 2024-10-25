@@ -1,0 +1,48 @@
+﻿# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Oo]bj/
+[Bb]in/
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# ASP.NET
+*.db
+*.bak
+*.log
+*.pdb
+*.cache
+*.dSYM/
+
+# Packages
+packages/
+*.nupkg
+
+# Publish folder
+publish/
+
+# User secrets
+secrets.json
+
+# npm packages
+node_modules/
+
+# Others
+*.swp
+*.swo
+*.tmp
+*.temp
+*.log
