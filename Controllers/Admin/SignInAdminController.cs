@@ -4,7 +4,7 @@ namespace SiteRBC.Controllers.Admin
 {
     public class SignInAdminController : Controller
     {
-        public IActionResult SignInAdm()
+        public IActionResult SignInAdmin()
         {
             return View();
         }
