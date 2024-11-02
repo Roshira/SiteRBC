@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace SiteRBC.Controllers.Admin
 {
@@ -15,6 +16,7 @@ namespace SiteRBC.Controllers.Admin
 		{
 			if (email == "roshira@ukr.net" && password == "123qwe123qwe")
 			{
+				HttpContext.Session.SetString("IsAuthenticated", "true");
 				return RedirectToAction("AdminMenu", "SignInAdmin");
 			}
 			ViewBag.ErrorMessage = "Error with password";
@@ -22,6 +24,10 @@ namespace SiteRBC.Controllers.Admin
 		}
 		public IActionResult AdminMenu()
 		{
+			if (HttpContext.Session.GetString("IsAuthenticated") != "true")
+			{
+				return RedirectToAction("SignInAdmin", "SignInAdmin");
+			}
 			return View();
 		}
 

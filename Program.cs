@@ -5,7 +5,10 @@ internal class Program
 	private static void Main(string[] args)
 	{
 		var builder = WebApplication.CreateBuilder(args);
+		builder.Services.AddSession();
 
+		// Додайте послуги MVC
+		builder.Services.AddControllersWithViews();
 		// Add services to the container.
 		builder.Services.AddControllersWithViews();
 
@@ -13,7 +16,7 @@ internal class Program
 			options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 		var app = builder.Build();
-
+		
 		// Configure the HTTP request pipeline.
 		if (!app.Environment.IsDevelopment())
 		{
@@ -26,6 +29,8 @@ internal class Program
 		app.UseStaticFiles();
 
 		app.UseRouting();
+
+		app.UseSession();
 
 		app.UseAuthorization();
 
