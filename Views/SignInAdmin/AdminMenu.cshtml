@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<SiteRBC.Models.Data.ReadyProductcs>
+@{
 	ViewData["Title"] = "AdminPage";
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -6,6 +7,17 @@
 	<title></title>
 </head>
 <body>
-	<h1>You in admin panel.</h1>
+	<a href="/Products/Products" class="btn btn-primary">Go to Details Page</a>
+
+    @foreach (var product in Model)
+    {
+        <div>
+            <p>@product.Name - @product.Price</p>
+            <form asp-action="Delete" method="post">
+                <input type="hidden" name="id" value="@product.Id" />
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    }
 </body>
 </html>

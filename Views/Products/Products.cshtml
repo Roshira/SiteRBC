@@ -1,0 +1,17 @@
+﻿@model SiteRBC.Models.Data.ReadyProductcs
+
+<form asp-action="Create" method="post">
+    <label>Name:</label>
+    <input asp-for="Name" />
+    <label>Price:</label>
+    <input asp-for="Price" />
+    <label>Height:</label>
+    <input asp-for="height" />
+    <label>Width:</label>
+    <input asp-for="width" />
+    <label>Length:</label>
+    <input asp-for="length" />
+    <label>Time For Build:</label>
+    <input asp-for="timeForBuild" />
+    <button type="submit">Add Product</button>
+</form>
