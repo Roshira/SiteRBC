@@ -7,17 +7,5 @@
 	<title></title>
 </head>
 <body>
-	<a href="/Products/Products" class="btn btn-primary">Go to Details Page</a>
-
-    @foreach (var product in Model)
-    {
-        <div>
-            <p>@product.Name - @product.Price</p>
-            <form asp-action="Delete" method="post">
-                <input type="hidden" name="id" value="@product.Id" />
-                <button type="submit">Delete</button>
-            </form>
-        </div>
-    }
 </body>
 </html>
