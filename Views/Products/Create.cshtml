@@ -1,0 +1,37 @@
+﻿@model SiteRBC.Models.Data.ReadyProductcs
+
+<h2>Додати продукт</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="height"></label>
+        <input asp-for="height" class="form-control" />
+        <span asp-validation-for="height" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="width"></label>
+        <input asp-for="width" class="form-control" />
+        <span asp-validation-for="width" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="length"></label>
+        <input asp-for="length" class="form-control" />
+        <span asp-validation-for="length" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="timeForBuild"></label>
+        <input asp-for="timeForBuild" class="form-control" />
+        <span asp-validation-for="timeForBuild" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Додати</button>
+</form>
