@@ -1,10 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using SiteRBC.Models.Data;
 
 namespace SiteRBC.Controllers.Admin
 {
 	public class SignInAdminController : Controller
 	{
+		private readonly ReadyProductContext _context;
+
+		public SignInAdminController(ReadyProductContext context)
+		{
+			_context = context;
+		}
 		[HttpGet]
 		public IActionResult SignInAdmin()
 		{
@@ -22,13 +30,16 @@ namespace SiteRBC.Controllers.Admin
 			ViewBag.ErrorMessage = "Error with password";
 			return View();
 		}
-		public IActionResult AdminMenu()
+		public async Task<IActionResult> AdminMenu()
 		{
 			if (HttpContext.Session.GetString("IsAuthenticated") != "true")
 			{
-				return RedirectToAction("SignInAdmin", "SignInAdmin");
+				return RedirectToAction("SignInAdmin");
 			}
-			return View();
+
+			//Loading data with database
+			List<ReadyProductcs> products = await _context.Products.ToListAsync();
+			return View(products);
 		}
 
 	}

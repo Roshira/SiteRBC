@@ -1,12 +1,37 @@
 ﻿@model IEnumerable<SiteRBC.Models.Data.ReadyProductcs>
+
 @{
-	ViewData["Title"] = "AdminPage";
+    ViewData["Title"] = "Admin Menu";
 }
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<title></title>
-</head>
-<body>
-	<a asp-controller="Products" asp-action="Create" class="btn btn-success">Add ready products</a>
-</body>
-</html>
+
+<h2>Admin Menu</h2>
+
+<a asp-controller="Products" asp-action="Create" class="btn btn-success">Add ready products</a>
+
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Height</th>
+            <th>Width</th>
+            <th>Length</th>
+            <th>Time For Build</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.height</td>
+                <td>@product.width</td>
+                <td>@product.length</td>
+                <td>@product.timeForBuild</td>
+            </tr>
+        }
+    </tbody>
+</table>
