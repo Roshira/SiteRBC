@@ -18,6 +18,8 @@
             <th>Width</th>
             <th>Length</th>
             <th>Time For Build</th>
+            <th>AdressImage</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -31,6 +33,13 @@
                 <td>@product.width</td>
                 <td>@product.length</td>
                 <td>@product.timeForBuild</td>
+                <td>@product.AdressImage</td>
+                <td>
+                    <form asp-controller="Products" asp-action="DeleteProduct" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@product.Id" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>
