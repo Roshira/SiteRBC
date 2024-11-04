@@ -1,52 +1,46 @@
 ﻿@model IEnumerable<SiteRBC.Models.Data.ReadyProductcs>
-<main>
 
-    <section class="py-5 text-center container">
-        <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Ready-made examples here</h1>
-                <p class="lead text-body-secondary">
-                    Here are ready-made storage solutions that you can purchase in 1 click, and
-                    we will contact you to clarify the details and choose an installation date.
-                </p>
-                <p>
-                    <a href="#" class="btn btn-primary my-2">Click to have us call you back</a>
-                    <a href="#" class="btn btn-secondary my-2">Support</a>
-                </p>
-            </div>
-        </div>
-    </section>
+@{
+    ViewData["Title"] = "Admin Menu";
+}
 
-    <div class="album py-5 bg-body-tertiary">
-        <div class="container">
+<h2>Admin Menu</h2>
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                @foreach (var product in Model)
-                {
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img src="~@product.AdressImage" width="250" height="200" class="d-block w-100" alt="Product image">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Name: @product.Name<br>
-                                    Price: @product.Price<br>
-                                    Height: @product.height<br>
-                                    Width: @product.width<br>
-                                    Length: @product.length<br>
-                                    Time for build: @product.timeForBuild
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
-                                    </div>
-                                    <small class="text-body-secondary">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
-    </div>
-</main>
+<a asp-controller="Products" asp-action="Create" class="btn btn-success">Add ready products</a>
+
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Height</th>
+            <th>Width</th>
+            <th>Length</th>
+            <th>Time For Build</th>
+            <th>AdressImage</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.height</td>
+                <td>@product.width</td>
+                <td>@product.length</td>
+                <td>@product.timeForBuild</td>
+                <td>@product.AdressImage</td>
+                <td>
+                    <form asp-controller="Products" asp-action="DeleteProduct" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@product.Id" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
