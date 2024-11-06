@@ -21,10 +21,5 @@ namespace SiteRBC.Controllers
             List<ReadyProductcs> products = await _context.Products.ToListAsync();
             return View(products);
         }
-        public IActionResult CallBack()
-        {
-
-            return View();
-        }
     }
 }
