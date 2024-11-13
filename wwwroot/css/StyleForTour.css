@@ -1,0 +1,144 @@
+﻿/* Загальні стилі */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.text-end {
+    text-align: right;
+}
+
+.float-end {
+    float: right;
+}
+
+.mb-6 {
+    margin-bottom: 6rem;
+}
+
+/* Карусель */
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 300%;
+}
+
+.carousel-item {
+    width: 100%;
+    flex: 1 0 100%;
+}
+
+.carousel img {
+    width: 1000px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+    .carousel-indicators button {
+        background-color: gray;
+        border: none;
+        margin: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+
+    .carousel-indicators .active {
+        background-color: black;
+    }
+
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.carousel-control-prev {
+    left: 0;
+}
+
+.carousel-control-next {
+    right: 0;
+}
+
+/* Сітка */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.col-lg-4, .col-md-5, .col-md-7 {
+    flex: 1;
+    margin: 10px;
+}
+
+    .col-lg-4 img, .col-md-5 img {
+        width: 100%;
+        height: auto;
+    }
+
+/* Кнопки */
+.btn {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+    .btn:hover {
+        background-color: darkblue;
+    }
+
+/* Заголовки і текст */
+.fw-normal {
+    font-weight: normal;
+}
+
+.lead {
+    font-size: 1.25rem;
+}
+
+/* Роздільник */
+.featurette-divider {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 2rem 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #f8f9fa;
+}
