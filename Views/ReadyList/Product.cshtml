@@ -9,7 +9,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<style>
-
 		.phone-popup {
 			position: fixed;
 			bottom: 20px;
@@ -44,15 +43,14 @@
 </head>
 <body>
 	<main>
-
 		<section class="py-5 text-center container">
 			<div class="row py-lg-5">
 				<div class="col-lg-6 col-md-8 mx-auto">
 					<h1 class="fw-light">Bomb shelters are ready</h1>
 					<p class="lead text-body-secondary">
-						On this page there are ready-made bomb shelters for your houses,
-						apartments, schools, and any other buildings and places. You just
-						need to click on the "Buy" button and they will call you back
+						On this page, you can find ready-made bomb shelters for your houses,
+						apartments, schools, and other buildings. Just click on the "Buy" button,
+						and we will call you back.
 					</p>
 					<p>
 						<a onclick="showPhoneIcon()" class="btn btn-primary my-2">Click to have us call you back</a>
@@ -63,15 +61,17 @@
 		</section>
 		<div class="album py-5 bg-body-tertiary">
 			<div class="container">
-
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 					@foreach (var product in Model)
 					{
 						<div class="col">
 							<div class="card shadow-sm">
-								<img src="@product.AdressImage" width="250" height="200" class="d-block w-100" alt="First slide">
+								<img src="@product.AdressImage" width="250" height="200" class="d-block w-100" alt="@product.Name image">
 								<div class="card-body">
-									<p class="card-text">Name: @product.Name; Price: @product.Price; Height: @product.height; Width: @product.width; Length: @product.length; Time for build: @product.timeForBuild.</p>
+									<p class="card-text">
+										Name: @product.Name; Price: @product.Price; Height: @product.height;
+										Width: @product.width; Length: @product.length; Time to build: @product.timeForBuild.
+									</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
 											<button type="button" class="btn btn-sm btn-outline-secondary" onclick="showPhoneIcon()">Buy</button>
@@ -87,7 +87,7 @@
 		</div>
 	</main>
 	<div id="phoneIcon" class="phone-popup">
-		<input type="text" placeholder="Writing number your phone" />
+		<input type="text" placeholder="Enter your phone number" />
 		<button onclick="submitPhoneNumber()">Send</button>
 	</div>
 
@@ -98,9 +98,13 @@
 
 		function submitPhoneNumber() {
 			var phoneNumber = document.querySelector("#phoneIcon input").value;
-			alert("Number was send: " + phoneNumber);
-			// Додатково: можна відправити номер телефону на сервер тут
-			document.getElementById("phoneIcon").style.display = "none";
+			if (phoneNumber.trim() === "") {
+				alert("Please enter your phone number.");
+			} else {
+				alert("Number was sent: " + phoneNumber);
+				document.getElementById("phoneIcon").style.display = "none";
+				// Optionally, send the phone number to the server here
+			}
 		}
 	</script>
 
