@@ -4,7 +4,7 @@ namespace SiteRBC.Controllers.AboutUs
 {
     public class AboutUsController : Controller
     {
-        public IActionResult AboutUs()
+        public IActionResult MainInformation()
         {
             return View();
         }
