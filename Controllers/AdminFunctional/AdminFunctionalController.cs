@@ -5,11 +5,11 @@ using SiteRBC.Models.Data;
 
 namespace SiteRBC.Controllers.Admin
 {
-	public class SignInAdminController : Controller
+	public class AdminFunctionalController : Controller
 	{
 		private readonly ReadyProductContext _context;
 
-		public SignInAdminController(ReadyProductContext context)
+		public AdminFunctionalController(ReadyProductContext context)
 		{
 			_context = context;
 		}
@@ -25,7 +25,7 @@ namespace SiteRBC.Controllers.Admin
 			if (email == "roshira@ukr.net" && password == "123qwe123qwe")
 			{
 				HttpContext.Session.SetString("IsAuthenticated", "true");
-				return RedirectToAction("AdminMenu", "SignInAdmin");
+				return RedirectToAction("AdminMenu", "AdminFunctional");
 			}
 			ViewBag.ErrorMessage = "Error with password";
 			return View();

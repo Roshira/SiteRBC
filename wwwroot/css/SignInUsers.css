@@ -1,27 +1,19 @@
-﻿.login-container {
-    max-width: 300px;
-    margin: auto;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-    border-radius: 10px;
-}
-
-    .login-container h2 {
-        text-align: center;
+﻿@media (max-width: 576px) {
+    .auth-container {
+        max-width: 90%;
+        padding: 15px;
     }
 
-    .login-container label,
-    .login-container input,
-    .login-container button {
-        width: 100%;
-        margin: 10px 0;
+        .auth-container h1 {
+            font-size: 1.5rem;
+        }
+
+    .form-control {
+        font-size: 0.9rem;
     }
 
-    .login-container button {
-        background-color: #555;
-        color: white;
+    .btn {
+        font-size: 0.9rem;
         padding: 10px;
-        border: none;
-        cursor: pointer;
     }
+}
