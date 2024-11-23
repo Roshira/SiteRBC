@@ -1,26 +1,52 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SiteRBC.Models.SignInAndUpUsers;
 
 namespace SiteRBC.Controllers
 {
     public class AccountsController : Controller
     {
         [HttpGet]
-        public IActionResult SignInUsers()
+        public IActionResult SignInAndUpUsers()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult SignInUsers(string username, string password)
+        public ActionResult Login(LoginViewModel model)
         {
-            if (username == "admin" && password == "password")
+           
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction("Tour", "Home");
+                // Якщо дані некоректні, повертаємо користувача на ту ж сторінку з помилками.
+                TempData["Error"] = "Invalid login details.";
+                return RedirectToAction("SignInAndUpUsers");
             }
-            else
+
+            // Перевірка логіну (простий приклад; реальна логіка може включати доступ до БД).
+            if (model.Email == "user@example.com" && model.Password == "password123")
             {
-                ViewBag.Error = "You entered an invalid password";
-                return View();
+                TempData["Success"] = "Login successful!";
+                return RedirectToAction("AdminMenu", "AdminFunctional"); // Перенаправлення на іншу сторінку.
             }
+
+            TempData["Error"] = $"{model.Email},{model.Password}";
+            return RedirectToAction("SignInAndUpUsers");
         }
+
+        // POST: Register
+        [HttpPost]
+        public ActionResult Register(RegisterViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = "Please correct the errors in the form.";
+                return RedirectToAction("SignInAndUpUsers");
+            }
+
+            // Збереження користувача (можливо, в базі даних).
+            TempData["Success"] = "Registration successful! You can now log in.";
+            return RedirectToAction("SignInAndUpUsers");
+        }
+
+
     }
 }

@@ -13,23 +13,6 @@ namespace SiteRBC.Controllers.Admin
 		{
 			_context = context;
 		}
-		[HttpGet]
-		public IActionResult SignInAdmin()
-		{
-			return View();
-		}
-
-		[HttpPost]
-		public IActionResult SignInAdmin(string email, string password)
-		{
-			if (email == "roshira@ukr.net" && password == "123qwe123qwe")
-			{
-				HttpContext.Session.SetString("IsAuthenticated", "true");
-				return RedirectToAction("AdminMenu", "AdminFunctional");
-			}
-			ViewBag.ErrorMessage = "Error with password";
-			return View();
-		}
 		public async Task<IActionResult> AdminMenu()
 		{
 			if (HttpContext.Session.GetString("IsAuthenticated") != "true")
