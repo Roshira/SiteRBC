@@ -71,10 +71,11 @@ namespace SiteRBC.Controllers
                 return RedirectToAction("SignInAndUpUsers");
             }
 
-            var existingUser = _context.Users.FirstOrDefault(u => u.Email == model.Email);
-            if (existingUser != null)
+            var existingUserEmail = _context.Users.FirstOrDefault(u => u.Email == model.Email);
+			var existingUserName = _context.Users.FirstOrDefault(u => u.FullName == model.FullName);
+			if (existingUserEmail != null || existingUserName != null)
             {
-                TempData["Error"] = "Email is already registered.";
+                TempData["Error"] = "Email or name already registered.";
                 return RedirectToAction("SignInAndUpUsers");
             }
 
