@@ -1,5 +1,5 @@
 ﻿# Visual Studio
-*.json
+appsettings.json
 .vs/
 *.suo
 *.user
