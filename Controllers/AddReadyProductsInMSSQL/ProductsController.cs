@@ -27,7 +27,7 @@ namespace SiteRBC.Controllers
             {
                 _context.Products.Add(product);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("AdminMenu", "SignInAdmin");
+                return RedirectToAction("AdminMenu", "AdminFunctional");
             }
             return View(product);
         }
@@ -40,7 +40,7 @@ namespace SiteRBC.Controllers
                 _context.Products.Remove(product);
                 await _context.SaveChangesAsync();
             }
-            return RedirectToAction("AdminMenu", "SignInAdmin"); // Повернення до головної сторінки після видалення
+            return RedirectToAction("AdminMenu", "AdminFunctional"); // Повернення до головної сторінки після видалення
         }
     }
 }
