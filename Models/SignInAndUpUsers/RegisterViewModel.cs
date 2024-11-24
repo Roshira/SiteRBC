@@ -5,7 +5,7 @@ namespace SiteRBC.Models.SignInAndUpUsers
     public class RegisterViewModel
     {
         [Required]
-        [StringLength(50, MinimumLength = 2)]
+        [MaxLength(50)]
         public string FullName { get; set; }
 
         [Required]
@@ -13,12 +13,11 @@ namespace SiteRBC.Models.SignInAndUpUsers
         public string Email { get; set; }
 
         [Required]
-        [DataType(DataType.Password)]
-        [StringLength(100, MinimumLength = 6)]
+        [MinLength(6, ErrorMessage = "Password must be at least 6 characters long.")]
+        [MaxLength(50)]
         public string Password { get; set; }
 
         [Required]
-        [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Passwords do not match.")]
         public string ConfirmPassword { get; set; }
     }

@@ -2,7 +2,7 @@
 
 namespace SiteRBC.Models.Data
 {
-	public class ReadyProductcs
+	public class ReadyProduct
 	{
 		public int Id { get; set; }
         [Required]

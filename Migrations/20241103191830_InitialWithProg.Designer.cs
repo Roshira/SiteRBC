@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace SiteRBC.Migrations
 {
-    [DbContext(typeof(ReadyProductContext))]
+    [DbContext(typeof(SiteRBCContext))]
     [Migration("20241103191830_InitialWithProg")]
     partial class InitialWithProg
     {

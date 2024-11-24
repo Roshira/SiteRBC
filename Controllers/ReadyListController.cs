@@ -7,9 +7,9 @@ namespace SiteRBC.Controllers
 {
 	public class ReadyListController : Controller
     {
-        private readonly ReadyProductContext _context;
+        private readonly SiteRBCContext _context;
 
-        public ReadyListController(ReadyProductContext context)
+        public ReadyListController(SiteRBCContext context)
         {
             _context = context;
         }
@@ -18,7 +18,7 @@ namespace SiteRBC.Controllers
         public async Task<IActionResult> Product()
         {
             //Loading data with database
-            List<ReadyProductcs> products = await _context.Products.ToListAsync();
+            List<ReadyProduct> products = await _context.Products.ToListAsync();
             return View(products);
         }
     }

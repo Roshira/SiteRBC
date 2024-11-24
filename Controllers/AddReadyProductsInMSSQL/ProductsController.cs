@@ -5,9 +5,9 @@ namespace SiteRBC.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly ReadyProductContext _context;
+        private readonly SiteRBCContext _context;
 
-        public ProductsController(ReadyProductContext context)
+        public ProductsController(SiteRBCContext context)
         {
             _context = context;
         }
@@ -21,7 +21,7 @@ namespace SiteRBC.Controllers
         // POST: Products/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ReadyProductcs product)
+        public async Task<IActionResult> Create(ReadyProduct product)
         {
             if (ModelState.IsValid)
             {

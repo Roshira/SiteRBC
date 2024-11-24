@@ -7,9 +7,9 @@ namespace SiteRBC.Controllers.Admin
 {
 	public class AdminFunctionalController : Controller
 	{
-		private readonly ReadyProductContext _context;
+		private readonly SiteRBCContext _context;
 
-		public AdminFunctionalController(ReadyProductContext context)
+		public AdminFunctionalController(SiteRBCContext context)
 		{
 			_context = context;
 		}
@@ -21,7 +21,7 @@ namespace SiteRBC.Controllers.Admin
 			}
 
 			//Loading data with database
-			List<ReadyProductcs> products = await _context.Products.ToListAsync();
+			List<ReadyProduct> products = await _context.Products.ToListAsync();
 			return View(products);
 		}
 

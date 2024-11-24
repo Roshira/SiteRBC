@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace SiteRBC.Migrations
 {
-    [DbContext(typeof(ReadyProductContext))]
+    [DbContext(typeof(SiteRBCContext))]
     [Migration("20241104164755_AddAdressImageColumn")]
     partial class AddAdressImageColumn
     {

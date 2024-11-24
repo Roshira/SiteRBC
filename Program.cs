@@ -12,7 +12,7 @@ internal class Program
 		// Add services to the container.
 		builder.Services.AddControllersWithViews();
 
-		builder.Services.AddDbContext<ReadyProductContext>(options =>
+		builder.Services.AddDbContext<SiteRBCContext>(options =>
 			options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
         var app = builder.Build();
