@@ -1,4 +1,5 @@
 ﻿# Visual Studio
+.json
 .vs/
 *.suo
 *.user
