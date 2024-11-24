@@ -1,93 +1,56 @@
-﻿<div class="container contact-info text-center">
-    <h2>Emergency Contact</h2>
-    <p><strong>Phone:</strong> +380 99 123 4567</p>
-    <p><strong>Email:</strong> <a href="mailto:roshirabuilding@gmail.com">roshirabuilding@gmail.com</a></p>
-</div>
+﻿@{
+    ViewData["Title"] = "Support";
+}
 
-<!-- Кнопка чату -->
-<button class="chat-button" id="chatButton">
-    <span>Chat</span>
-</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
 
-<!-- Контейнер чату -->
-<div class="chat-container" id="chatContainer">
-    <form id="chatForm">
-        <h5>Live Chat</h5>
-        <textarea class="form-control mb-2" rows="4" placeholder="Type your message here..." required></textarea>
-        <button type="submit" class="btn btn-primary w-100">Send List</button>
-    </form>
-</div>
+    <div class="container mt-5">
+        <h1 class="text-center">Contact Support</h1>
+        <p class="text-center">We are here to help! Feel free to contact us using the following methods:</p>
 
-<script>
-    const chatButton = document.getElementById('chatButton');
-    const chatContainer = document.getElementById('chatContainer');
-    const chatForm = document.getElementById('chatForm');
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Our Contact Information</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <strong>Phone:</strong> +1 234 567 890
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Email:</strong> <a href="mailto:roshirabuilding@gmail.com">support@yourdomain.com</a>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Address:</strong> 1234 Some St, City, Country
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Telegram:</strong> <a href="https://t.me/RosghiraBuildings" target="_blank">Telegram Support</a>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Instagram:</strong> <a href="https://instagram.com/RosghiraBuildings" target="_blank">Instagram</a>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>TikTok:</strong> <a href="https://tiktok.com/RosghiraBuildings" target="_blank">TikTok</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    chatButton.addEventListener('click', () => {
-        chatContainer.style.display = chatContainer.style.display === 'none' || chatContainer.style.display === ''
-            ? 'flex' : 'none';
-    });
+        <div class="text-center mt-5">
+            <p>If you have any further questions or issues, don't hesitate to reach out to us!</p>
+        </div>
+    </div>
 
-    chatForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const message = chatForm.querySelector('textarea').value;
-
-        try {
-            const response = await fetch('/Support/SendMessage', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ message }),
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-                alert(result.message);
-                chatForm.querySelector('textarea').value = '';
-                chatContainer.style.display = 'none';
-            } else {
-                alert('Error: ' + result.message);
-            }
-        } catch (error) {
-            alert('Error: Unable to connect to the server.');
-            console.error(error);
-        }
-    });
-</script>
-
-<style>
-    .chat-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 50px;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .chat-container {
-        position: fixed;
-        bottom: 80px;
-        right: 20px;
-        width: 300px;
-        background-color: white;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        padding: 10px;
-        display: none;
-        flex-direction: column;
-    }
-
-        .chat-container textarea {
-            resize: none;
-        }
-</style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

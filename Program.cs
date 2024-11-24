@@ -52,7 +52,11 @@ internal class Program
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Home}/{action=Tour}/{id?}");
+		app.MapControllerRoute(
+			name: "support",
+			pattern: "Support/{action=GeneralSupportPage}/{id?}",
+			defaults: new { controller = "Support" });
 
-        app.Run();
+		app.Run();
     }
 }
