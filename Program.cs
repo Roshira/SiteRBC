@@ -1,43 +1,58 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 internal class Program
 {
-	private static void Main(string[] args)
-	{
-		var builder = WebApplication.CreateBuilder(args);
-		builder.Services.AddSession();
+    private static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
 
-		// Додайте послуги MVC
-		builder.Services.AddControllersWithViews();
-		// Add services to the container.
-		builder.Services.AddControllersWithViews();
+        // Додаємо підтримку сесій
+        builder.Services.AddSession();
 
-		builder.Services.AddDbContext<SiteRBCContext>(options =>
-			options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+        // Додаємо аутентифікацію через Cookies
+        builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.LoginPath = "/Accounts/SignInAndUpUsers"; // Сторінка входу
+                options.LogoutPath = "/Accounts/Logout"; // Сторінка виходу
+                options.AccessDeniedPath = "/Home/AccessDenied"; // Сторінка для обмеження доступу
+            });
+
+        // Додаємо послуги MVC
+        builder.Services.AddControllersWithViews();
+
+        // Підключення до бази даних через контекст
+        builder.Services.AddDbContext<SiteRBCContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
         var app = builder.Build();
-		
-		// Configure the HTTP request pipeline.
-		if (!app.Environment.IsDevelopment())
-		{
-			app.UseExceptionHandler("/Home/Error");
-			// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-			app.UseHsts();
-		}
 
-		app.UseHttpsRedirection();
-		app.UseStaticFiles();
+        // Налаштування середовища
+        if (!app.Environment.IsDevelopment())
+        {
+            app.UseExceptionHandler("/Home/Error");
+            app.UseHsts();
+        }
 
-		app.UseRouting();
+        // Middleware для HTTPS, статичних файлів, маршрутизації
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
 
-		app.UseSession();
+        app.UseRouting();
 
-		app.UseAuthorization();
+        // Аутентифікація та авторизація
+        app.UseAuthentication(); // Додаємо аутентифікацію
+        app.UseAuthorization();
 
-		app.MapControllerRoute(
-			name: "default",
+        // Використання сесій
+        app.UseSession();
+
+        // Маршрутизація
+        app.MapControllerRoute(
+            name: "default",
             pattern: "{controller=Home}/{action=Tour}/{id?}");
 
-		app.Run();
-	}
+        app.Run();
+    }
 }

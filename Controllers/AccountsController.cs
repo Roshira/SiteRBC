@@ -4,6 +4,10 @@ using SiteRBC.Models.Data;
 using SiteRBC.Models.SignInAndUpUsers;
 using System.Data.SqlClient;
 using BCrypt.Net;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SiteRBC.Controllers
 {
@@ -24,7 +28,7 @@ namespace SiteRBC.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -40,8 +44,22 @@ namespace SiteRBC.Controllers
                 return RedirectToAction("SignInAndUpUsers");
             }
 
+            // Створення Claims
+            var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.Name, user.FullName),
+        new Claim(ClaimTypes.Email, user.Email),
+        new Claim("UserId", user.Id.ToString()) // Зберігаємо Id користувача
+    };
+
+            // Створення ClaimsIdentity
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            // Аутентифікація користувача
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
             TempData["Success"] = "Login successful!";
-            return RedirectToAction("Tour", "Home");
+            return RedirectToAction("Profile"); // Переходимо на сторінку профілю
         }
 
         [HttpPost]
@@ -75,7 +93,26 @@ namespace SiteRBC.Controllers
             TempData["Success"] = "Registration successful! You can now log in.";
             return RedirectToAction("Tour", "Home");
         }
+        [HttpGet]
+        [Authorize]
+        public IActionResult Profile()
+        {
+            var userName = User.Identity.Name;
+            var userEmail = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
 
+            var userModel = new UserProfileViewModel
+            {
+                FullName = userName,
+                Email = userEmail
+            };
 
+            return View(userModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("SignInAndUpUsers");
+        }
     }
 }

@@ -1,0 +1,9 @@
+﻿@model SiteRBC.Models.SignInAndUpUsers.UserProfileViewModel
+
+<h2>My profile</h2>
+<p><strong>Name:</strong> @Model.FullName</p>
+<p><strong>Email:</strong> @Model.Email</p>
+
+<form asp-action="Logout" method="post">
+    <button type="submit">Вийти</button>
+</form>
