@@ -5,5 +5,11 @@
 <p><strong>Email:</strong> @Model.Email</p>
 
 <form asp-action="Logout" method="post">
-    <button type="submit">Вийти</button>
+    <button type="submit">Exit</button>
 </form>
+@if (User.IsInRole("Admin"))
+{
+    <form asp-action="AdminMenu" asp-controller="AdminFunctional" method="get" style="margin-top: 20px;">
+        <button type="submit" class="btn btn-primary">Go to Admin Panel</button>
+    </form>
+}

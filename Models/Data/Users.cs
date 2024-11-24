@@ -17,6 +17,6 @@ namespace SiteRBC.Models.Data
         [Required]
         [MaxLength(100)]
         public string Password { get; set; }
-
-    }
+		public string Role { get; internal set; }
+	}
 }

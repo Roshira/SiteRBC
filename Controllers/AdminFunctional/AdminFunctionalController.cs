@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using SiteRBC.Models.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SiteRBC.Controllers.Admin
 {
@@ -13,13 +14,9 @@ namespace SiteRBC.Controllers.Admin
 		{
 			_context = context;
 		}
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> AdminMenu()
 		{
-			if (HttpContext.Session.GetString("IsAuthenticated") != "true")
-			{
-				return RedirectToAction("SignInAdmin");
-			}
-
 			//Loading data with database
 			List<ReadyProduct> products = await _context.Products.ToListAsync();
 			return View(products);
