@@ -1,0 +1,13 @@
+﻿@model string
+
+<form method="post" asp-action="GetResponse">
+    <label for="userInput">Введіть запит:</label>
+    <input type="text" id="userInput" name="userInput" required>
+    <button type="submit">Надіслати</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model))
+{
+    <h3>Відповідь:</h3>
+    <p>@Model</p>
+}

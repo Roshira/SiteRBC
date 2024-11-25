@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using SiteRBC.Models.AIModels;
 
 internal class Program
 {
@@ -9,6 +10,7 @@ internal class Program
 
         // Додаємо підтримку сесій
         builder.Services.AddSession();
+        builder.Services.AddHttpClient();
 
         // Додаємо аутентифікацію через Cookies
         builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -18,7 +20,7 @@ internal class Program
                 options.LogoutPath = "/Accounts/Logout"; // Сторінка виходу
                 options.AccessDeniedPath = "/Home/AccessDenied"; // Сторінка для обмеження доступу
             });
-
+        builder.Services.Configure<OpenAIOptions>(builder.Configuration.GetSection("OpenAI"));
         // Додаємо послуги MVC
         builder.Services.AddControllersWithViews();
 
