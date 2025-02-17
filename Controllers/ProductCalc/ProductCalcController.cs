@@ -34,7 +34,7 @@ namespace SiteRBC.Controllers.ProductCalc
 			var apiUrl = "https://api.openai.com/v1/chat/completions";
 			var requestContent = new StringContent(JsonSerializer.Serialize(new
 			{
-				model = "GPT-4o mini",
+				model = "GPT-4",
 				messages = new[]
 				{
 			new { role = "user", content = userInput }
