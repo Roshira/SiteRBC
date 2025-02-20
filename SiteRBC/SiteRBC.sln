@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteRBC", "SiteRBC.csproj", "{22BE7629-7D96-4FB4-BAC5-A585BC360DED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteRBC.tests", "..\SiteRBC.tests\SiteRBC.tests.csproj", "{BAB14C0E-30F4-4084-BDCD-F32EEAF4B1C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{22BE7629-7D96-4FB4-BAC5-A585BC360DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22BE7629-7D96-4FB4-BAC5-A585BC360DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22BE7629-7D96-4FB4-BAC5-A585BC360DED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAB14C0E-30F4-4084-BDCD-F32EEAF4B1C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAB14C0E-30F4-4084-BDCD-F32EEAF4B1C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAB14C0E-30F4-4084-BDCD-F32EEAF4B1C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAB14C0E-30F4-4084-BDCD-F32EEAF4B1C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

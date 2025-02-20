@@ -1,12 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+bin/
+obj/
+TestResults/
 
-namespace SiteRBC.tests
-{
-    class _
-    {
-    }
-}
+.vscode/
+*.suo
+*.user
+*.cache
+*.vs/
+.idea/
+
+*.log
+
+*.db
+*.db-shm
+*.db-wal
+*.pdb
+
+*.nupkg
+packages/
+.nuget/
+
+.env
+.env.local
+
+*.testhost.*

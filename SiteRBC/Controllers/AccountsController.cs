@@ -61,40 +61,40 @@ namespace SiteRBC.Controllers
 			return RedirectToAction("Profile");
 		}
 
-		[HttpPost]
-		public IActionResult Register(RegisterViewModel model)
-		{
-			if (!ModelState.IsValid)
-			{
-				TempData["Error"] = "Please correct the errors in the form.";
-				return RedirectToAction("SignInAndUpUsers");
-			}
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model) // Додайте `async` і повертайте `Task<IActionResult>`
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = "Please correct the errors in the form.";
+                return RedirectToAction("SignInAndUpUsers");
+            }
 
-			var existingUserEmail = _context.Users.FirstOrDefault(u => u.Email == model.Email);
-			var existingUserName = _context.Users.FirstOrDefault(u => u.FullName == model.FullName);
-			if (existingUserEmail != null || existingUserName != null)
-			{
-				TempData["Error"] = "Email or name already registered.";
-				return RedirectToAction("SignInAndUpUsers");
-			}
+            var existingUserEmail = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email); // Використовуйте `FirstOrDefaultAsync`
+            var existingUserName = await _context.Users.FirstOrDefaultAsync(u => u.FullName == model.FullName); // Використовуйте `FirstOrDefaultAsync`
+            if (existingUserEmail != null || existingUserName != null)
+            {
+                TempData["Error"] = "Email or name already registered.";
+                return RedirectToAction("SignInAndUpUsers");
+            }
 
-			var hashedPassword = BCrypt.Net.BCrypt.HashPassword(model.Password);
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(model.Password);
 
-			var user = new Users
-			{
-				FullName = model.FullName,
-				Email = model.Email,
-				Password = hashedPassword,
-				Role = model.Role ?? "User"
-			};
+            var user = new Users
+            {
+                FullName = model.FullName,
+                Email = model.Email,
+                Password = hashedPassword,
+                Role = model.Role ?? "User"
+            };
 
-			_context.Users.Add(user);
-			_context.SaveChanges();
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync(); // Використовуйте `SaveChangesAsync`
 
-			TempData["Success"] = "Registration successful! You can now log in.";
-			return RedirectToAction("Tour", "Home");
-		}
-		[HttpGet]
+            TempData["Success"] = "Registration successful! You can now log in.";
+            return RedirectToAction("Tour", "Home");
+        }
+        [HttpGet]
 		[Authorize]
 		public IActionResult Profile()
 		{
