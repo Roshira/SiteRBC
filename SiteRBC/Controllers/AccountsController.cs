@@ -62,7 +62,7 @@ namespace SiteRBC.Controllers
 		}
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model) // Додайте `async` і повертайте `Task<IActionResult>`
+        public virtual async Task<IActionResult> Register(RegisterViewModel model) // Додайте `async` і повертайте `Task<IActionResult>`
         {
             if (!ModelState.IsValid)
             {
