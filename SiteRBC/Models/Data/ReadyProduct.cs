@@ -19,8 +19,8 @@ namespace SiteRBC.Models.Data
         [Range(0, int.MaxValue)]
         public int timeForBuild { get; set; }
 
-        public string AdressImage { get; set; }
+        public string? AdressImage { get; set; }
 
 
-	}
+    }
 }
