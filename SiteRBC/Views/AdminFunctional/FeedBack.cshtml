@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SiteRBC.Models.Data.UsersInfo>
+
+@{
+    ViewData["Title"] = "User Feedback";
+}
+
+<h2>User Feedback</h2>
+
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.FullName</td>
+                <td>@user.Email</td>
+                <td>@user.Number</td>
+            </tr>
+        }
+    </tbody>
+</table>

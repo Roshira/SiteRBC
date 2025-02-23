@@ -11,4 +11,6 @@ public class SiteRBCContext : DbContext
 	public DbSet<ReadyProduct> Products { get; set; }
 
 	public virtual DbSet<Users> Users { get; set; }
+
+	public DbSet<UsersInfo> UsersInfo { get; set; }
 }
