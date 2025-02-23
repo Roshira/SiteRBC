@@ -1,0 +1,83 @@
+\doxysection{Site\+RBC.\+Controllers.\+Admin.\+Admin\+Functional\+Controller Class Reference}
+\hypertarget{class_site_r_b_c_1_1_controllers_1_1_admin_1_1_admin_functional_controller}{}\label{class_site_r_b_c_1_1_controllers_1_1_admin_1_1_admin_functional_controller}\index{SiteRBC.Controllers.Admin.AdminFunctionalController@{SiteRBC.Controllers.Admin.AdminFunctionalController}}
+
+
+Controller for handling administrative functionalities.  
+
+
+Inheritance diagram for Site\+RBC.\+Controllers.\+Admin.\+Admin\+Functional\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_site_r_b_c_1_1_controllers_1_1_admin_1_1_admin_functional_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_admin_1_1_admin_functional_controller_a1c5fbc5c54624fd03225f96ec1d6d626}{Admin\+Functional\+Controller}} (\mbox{\hyperlink{class_site_r_b_c_context}{Site\+RBCContext}} context)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_site_r_b_c_1_1_controllers_1_1_admin_1_1_admin_functional_controller}{Admin\+Functional\+Controller}. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_admin_1_1_admin_functional_controller_a8209d81a50a76d05e53e23d692161637}{Admin\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Displays the admin menu with a list of available products. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_admin_1_1_admin_functional_controller_a1b771edb9bb6676c4bd4ee76bed60470}{Feed\+Back}} ()
+\begin{DoxyCompactList}\small\item\em Displays the feedback section with user information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller for handling administrative functionalities. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_admin_1_1_admin_functional_controller_a1c5fbc5c54624fd03225f96ec1d6d626}\index{SiteRBC.Controllers.Admin.AdminFunctionalController@{SiteRBC.Controllers.Admin.AdminFunctionalController}!AdminFunctionalController@{AdminFunctionalController}}
+\index{AdminFunctionalController@{AdminFunctionalController}!SiteRBC.Controllers.Admin.AdminFunctionalController@{SiteRBC.Controllers.Admin.AdminFunctionalController}}
+\doxysubsubsection{\texorpdfstring{AdminFunctionalController()}{AdminFunctionalController()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_admin_1_1_admin_functional_controller_a1c5fbc5c54624fd03225f96ec1d6d626} 
+Site\+RBC.\+Controllers.\+Admin.\+Admin\+Functional\+Controller.\+Admin\+Functional\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_site_r_b_c_context}{Site\+RBCContext}}}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \doxylink{class_site_r_b_c_1_1_controllers_1_1_admin_1_1_admin_functional_controller}{Admin\+Functional\+Controller}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & Database context for accessing stored data. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_admin_1_1_admin_functional_controller_a8209d81a50a76d05e53e23d692161637}\index{SiteRBC.Controllers.Admin.AdminFunctionalController@{SiteRBC.Controllers.Admin.AdminFunctionalController}!AdminMenu@{AdminMenu}}
+\index{AdminMenu@{AdminMenu}!SiteRBC.Controllers.Admin.AdminFunctionalController@{SiteRBC.Controllers.Admin.AdminFunctionalController}}
+\doxysubsubsection{\texorpdfstring{AdminMenu()}{AdminMenu()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_admin_1_1_admin_functional_controller_a8209d81a50a76d05e53e23d692161637} 
+async Task$<$ IAction\+Result $>$ Site\+RBC.\+Controllers.\+Admin.\+Admin\+Functional\+Controller.\+Admin\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays the admin menu with a list of available products. 
+
+\begin{DoxyReturn}{Returns}
+View containing the list of products. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Only accessible by users with the "{}\+Admin"{} role. 
+\end{DoxyNote}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_admin_1_1_admin_functional_controller_a1b771edb9bb6676c4bd4ee76bed60470}\index{SiteRBC.Controllers.Admin.AdminFunctionalController@{SiteRBC.Controllers.Admin.AdminFunctionalController}!FeedBack@{FeedBack}}
+\index{FeedBack@{FeedBack}!SiteRBC.Controllers.Admin.AdminFunctionalController@{SiteRBC.Controllers.Admin.AdminFunctionalController}}
+\doxysubsubsection{\texorpdfstring{FeedBack()}{FeedBack()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_admin_1_1_admin_functional_controller_a1b771edb9bb6676c4bd4ee76bed60470} 
+async Task$<$ IAction\+Result $>$ Site\+RBC.\+Controllers.\+Admin.\+Admin\+Functional\+Controller.\+Feed\+Back (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays the feedback section with user information. 
+
+\begin{DoxyReturn}{Returns}
+View containing the list of users who provided feedback. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Only accessible by users with the "{}\+Admin"{} role. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Site\+RBC/\+Controllers/\+Admin\+Functional/Admin\+Functional\+Controller.\+cs\end{DoxyCompactItemize}

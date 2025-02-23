@@ -1,0 +1,102 @@
+\doxysection{Site\+RBC.\+Controllers.\+Products\+Controller Class Reference}
+\hypertarget{class_site_r_b_c_1_1_controllers_1_1_products_controller}{}\label{class_site_r_b_c_1_1_controllers_1_1_products_controller}\index{SiteRBC.Controllers.ProductsController@{SiteRBC.Controllers.ProductsController}}
+
+
+Controller for managing product-\/related operations.  
+
+
+Inheritance diagram for Site\+RBC.\+Controllers.\+Products\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_site_r_b_c_1_1_controllers_1_1_products_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_products_controller_a792a50cee0a1e7d35542b0bddb2b6d31}{Products\+Controller}} (\mbox{\hyperlink{class_site_r_b_c_context}{Site\+RBCContext}} context)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_site_r_b_c_1_1_controllers_1_1_products_controller}{Products\+Controller}. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_products_controller_a929a38e5ebda950f9ed4950dc40754a8}{Create}} ()
+\begin{DoxyCompactList}\small\item\em Displays the product creation form. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_products_controller_a474e53e3eb50138645aa9520a5a302bb}{Create}} (\mbox{\hyperlink{class_site_r_b_c_1_1_models_1_1_data_1_1_ready_product}{Ready\+Product}} product)
+\begin{DoxyCompactList}\small\item\em Handles the creation of a new product. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_products_controller_ae51f58069bbff6e28641c5dfb31b6d8d}{Delete\+Product}} (int id)
+\begin{DoxyCompactList}\small\item\em Deletes a product by its ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller for managing product-\/related operations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_products_controller_a792a50cee0a1e7d35542b0bddb2b6d31}\index{SiteRBC.Controllers.ProductsController@{SiteRBC.Controllers.ProductsController}!ProductsController@{ProductsController}}
+\index{ProductsController@{ProductsController}!SiteRBC.Controllers.ProductsController@{SiteRBC.Controllers.ProductsController}}
+\doxysubsubsection{\texorpdfstring{ProductsController()}{ProductsController()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_products_controller_a792a50cee0a1e7d35542b0bddb2b6d31} 
+Site\+RBC.\+Controllers.\+Products\+Controller.\+Products\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_site_r_b_c_context}{Site\+RBCContext}}}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \doxylink{class_site_r_b_c_1_1_controllers_1_1_products_controller}{Products\+Controller}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & Database context for accessing product data. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_products_controller_a929a38e5ebda950f9ed4950dc40754a8}\index{SiteRBC.Controllers.ProductsController@{SiteRBC.Controllers.ProductsController}!Create@{Create}}
+\index{Create@{Create}!SiteRBC.Controllers.ProductsController@{SiteRBC.Controllers.ProductsController}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_products_controller_a929a38e5ebda950f9ed4950dc40754a8} 
+IAction\+Result Site\+RBC.\+Controllers.\+Products\+Controller.\+Create (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays the product creation form. 
+
+\begin{DoxyReturn}{Returns}
+View for creating a new product. 
+\end{DoxyReturn}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_products_controller_a474e53e3eb50138645aa9520a5a302bb}\index{SiteRBC.Controllers.ProductsController@{SiteRBC.Controllers.ProductsController}!Create@{Create}}
+\index{Create@{Create}!SiteRBC.Controllers.ProductsController@{SiteRBC.Controllers.ProductsController}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_products_controller_a474e53e3eb50138645aa9520a5a302bb} 
+async Task$<$ IAction\+Result $>$ Site\+RBC.\+Controllers.\+Products\+Controller.\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_site_r_b_c_1_1_models_1_1_data_1_1_ready_product}{Ready\+Product}}}]{product}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Handles the creation of a new product. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em product} & The product data submitted by the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Redirects to the Admin\+Menu if successful, otherwise reloads the creation view. 
+\end{DoxyReturn}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_products_controller_ae51f58069bbff6e28641c5dfb31b6d8d}\index{SiteRBC.Controllers.ProductsController@{SiteRBC.Controllers.ProductsController}!DeleteProduct@{DeleteProduct}}
+\index{DeleteProduct@{DeleteProduct}!SiteRBC.Controllers.ProductsController@{SiteRBC.Controllers.ProductsController}}
+\doxysubsubsection{\texorpdfstring{DeleteProduct()}{DeleteProduct()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_products_controller_ae51f58069bbff6e28641c5dfb31b6d8d} 
+async Task$<$ IAction\+Result $>$ Site\+RBC.\+Controllers.\+Products\+Controller.\+Delete\+Product (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Deletes a product by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the product to be deleted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Redirects to the Admin\+Menu after deletion. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Site\+RBC/\+Controllers/\+Add\+Ready\+Products\+In\+MSSQL/Products\+Controller.\+cs\end{DoxyCompactItemize}

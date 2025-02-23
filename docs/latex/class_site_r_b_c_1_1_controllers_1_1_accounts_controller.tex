@@ -1,0 +1,132 @@
+\doxysection{Site\+RBC.\+Controllers.\+Accounts\+Controller Class Reference}
+\hypertarget{class_site_r_b_c_1_1_controllers_1_1_accounts_controller}{}\label{class_site_r_b_c_1_1_controllers_1_1_accounts_controller}\index{SiteRBC.Controllers.AccountsController@{SiteRBC.Controllers.AccountsController}}
+
+
+Controller for user authentication and registration.  
+
+
+Inheritance diagram for Site\+RBC.\+Controllers.\+Accounts\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_site_r_b_c_1_1_controllers_1_1_accounts_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_ab75cd5b8d9e3e48e4611717fd7209176}{Accounts\+Controller}} (\mbox{\hyperlink{interface_site_r_b_c_1_1_services_1_1_account_sevice_1_1_i_user_service}{IUser\+Service}} user\+Service)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_site_r_b_c_1_1_controllers_1_1_accounts_controller}{Accounts\+Controller}. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_a92fc32738b00af5e8a93ad4757982ca3}{Sign\+In\+And\+Up\+Users}} ()
+\begin{DoxyCompactList}\small\item\em Displays the login and registration page. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_a80e9025e90defb931edf05dbb6e6a4a9}{Login}} (\mbox{\hyperlink{class_site_r_b_c_1_1_models_1_1_sign_in_and_up_users_1_1_login_view_model}{Login\+View\+Model}} model)
+\begin{DoxyCompactList}\small\item\em Handles user login. \end{DoxyCompactList}\item 
+virtual async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_a49b5aeb1af78618d50547c7dad6ec44c}{Register}} (\mbox{\hyperlink{class_site_r_b_c_1_1_models_1_1_sign_in_and_up_users_1_1_register_view_model}{Register\+View\+Model}} model)
+\begin{DoxyCompactList}\small\item\em Handles user registration. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_a7be0b837ec667e6f132093e978c2393b}{Profile}} ()
+\begin{DoxyCompactList}\small\item\em Displays the user profile page. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_a98c6a2fde97bb20de11845f02ef43244}{Logout}} ()
+\begin{DoxyCompactList}\small\item\em Logs out the current user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller for user authentication and registration. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_ab75cd5b8d9e3e48e4611717fd7209176}\index{SiteRBC.Controllers.AccountsController@{SiteRBC.Controllers.AccountsController}!AccountsController@{AccountsController}}
+\index{AccountsController@{AccountsController}!SiteRBC.Controllers.AccountsController@{SiteRBC.Controllers.AccountsController}}
+\doxysubsubsection{\texorpdfstring{AccountsController()}{AccountsController()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_ab75cd5b8d9e3e48e4611717fd7209176} 
+Site\+RBC.\+Controllers.\+Accounts\+Controller.\+Accounts\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_site_r_b_c_1_1_services_1_1_account_sevice_1_1_i_user_service}{IUser\+Service}}}]{user\+Service}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \doxylink{class_site_r_b_c_1_1_controllers_1_1_accounts_controller}{Accounts\+Controller}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Service} & Service for handling user authentication and registration. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_a80e9025e90defb931edf05dbb6e6a4a9}\index{SiteRBC.Controllers.AccountsController@{SiteRBC.Controllers.AccountsController}!Login@{Login}}
+\index{Login@{Login}!SiteRBC.Controllers.AccountsController@{SiteRBC.Controllers.AccountsController}}
+\doxysubsubsection{\texorpdfstring{Login()}{Login()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_a80e9025e90defb931edf05dbb6e6a4a9} 
+async Task$<$ IAction\+Result $>$ Site\+RBC.\+Controllers.\+Accounts\+Controller.\+Login (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_site_r_b_c_1_1_models_1_1_sign_in_and_up_users_1_1_login_view_model}{Login\+View\+Model}}}]{model}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Handles user login. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & \doxylink{class_site_r_b_c_1_1_models_1_1_sign_in_and_up_users_1_1_login_view_model}{Login\+View\+Model} containing user credentials. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Redirects to the profile page if successful; otherwise, reloads the login page with an error message. 
+\end{DoxyReturn}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_a98c6a2fde97bb20de11845f02ef43244}\index{SiteRBC.Controllers.AccountsController@{SiteRBC.Controllers.AccountsController}!Logout@{Logout}}
+\index{Logout@{Logout}!SiteRBC.Controllers.AccountsController@{SiteRBC.Controllers.AccountsController}}
+\doxysubsubsection{\texorpdfstring{Logout()}{Logout()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_a98c6a2fde97bb20de11845f02ef43244} 
+async Task$<$ IAction\+Result $>$ Site\+RBC.\+Controllers.\+Accounts\+Controller.\+Logout (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Logs out the current user. 
+
+\begin{DoxyReturn}{Returns}
+Redirects to the sign-\/in/sign-\/up page. 
+\end{DoxyReturn}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_a7be0b837ec667e6f132093e978c2393b}\index{SiteRBC.Controllers.AccountsController@{SiteRBC.Controllers.AccountsController}!Profile@{Profile}}
+\index{Profile@{Profile}!SiteRBC.Controllers.AccountsController@{SiteRBC.Controllers.AccountsController}}
+\doxysubsubsection{\texorpdfstring{Profile()}{Profile()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_a7be0b837ec667e6f132093e978c2393b} 
+IAction\+Result Site\+RBC.\+Controllers.\+Accounts\+Controller.\+Profile (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays the user profile page. 
+
+\begin{DoxyReturn}{Returns}
+View containing user profile details. 
+\end{DoxyReturn}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_a49b5aeb1af78618d50547c7dad6ec44c}\index{SiteRBC.Controllers.AccountsController@{SiteRBC.Controllers.AccountsController}!Register@{Register}}
+\index{Register@{Register}!SiteRBC.Controllers.AccountsController@{SiteRBC.Controllers.AccountsController}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_a49b5aeb1af78618d50547c7dad6ec44c} 
+virtual async Task$<$ IAction\+Result $>$ Site\+RBC.\+Controllers.\+Accounts\+Controller.\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_site_r_b_c_1_1_models_1_1_sign_in_and_up_users_1_1_register_view_model}{Register\+View\+Model}}}]{model}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Handles user registration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & \doxylink{class_site_r_b_c_1_1_models_1_1_sign_in_and_up_users_1_1_register_view_model}{Register\+View\+Model} containing user details. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Redirects to the home tour page if successful; otherwise, reloads the registration page with an error message. 
+\end{DoxyReturn}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_a92fc32738b00af5e8a93ad4757982ca3}\index{SiteRBC.Controllers.AccountsController@{SiteRBC.Controllers.AccountsController}!SignInAndUpUsers@{SignInAndUpUsers}}
+\index{SignInAndUpUsers@{SignInAndUpUsers}!SiteRBC.Controllers.AccountsController@{SiteRBC.Controllers.AccountsController}}
+\doxysubsubsection{\texorpdfstring{SignInAndUpUsers()}{SignInAndUpUsers()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_accounts_controller_a92fc32738b00af5e8a93ad4757982ca3} 
+IAction\+Result Site\+RBC.\+Controllers.\+Accounts\+Controller.\+Sign\+In\+And\+Up\+Users (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays the login and registration page. 
+
+\begin{DoxyReturn}{Returns}
+View of the sign-\/in/sign-\/up page. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Site\+RBC/\+Controllers/Accounts\+Controller.\+cs\end{DoxyCompactItemize}

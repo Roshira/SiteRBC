@@ -1,0 +1,82 @@
+\doxysection{Site\+RBC.\+Controllers.\+Ready\+List\+Controller Class Reference}
+\hypertarget{class_site_r_b_c_1_1_controllers_1_1_ready_list_controller}{}\label{class_site_r_b_c_1_1_controllers_1_1_ready_list_controller}\index{SiteRBC.Controllers.ReadyListController@{SiteRBC.Controllers.ReadyListController}}
+
+
+Controller for managing the list of ready products and saving user information.  
+
+
+Inheritance diagram for Site\+RBC.\+Controllers.\+Ready\+List\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_site_r_b_c_1_1_controllers_1_1_ready_list_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_ready_list_controller_a3a34d318af71dd116f51d958a268f713}{Ready\+List\+Controller}} (\mbox{\hyperlink{class_site_r_b_c_context}{Site\+RBCContext}} context)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_site_r_b_c_1_1_controllers_1_1_ready_list_controller}{Ready\+List\+Controller}. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_ready_list_controller_a8fd77c026dfc4d5dbc4bd939b6e40d91}{Product}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the list of ready products from the database. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_site_r_b_c_1_1_controllers_1_1_ready_list_controller_abc5481927b9e156558b906517f57a9bf}{Save\+User\+Info}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_site_r_b_c_1_1_models_1_1_data_1_1_users_info}{Users\+Info}} user\+Info)
+\begin{DoxyCompactList}\small\item\em Saves user information into the database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller for managing the list of ready products and saving user information. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_ready_list_controller_a3a34d318af71dd116f51d958a268f713}\index{SiteRBC.Controllers.ReadyListController@{SiteRBC.Controllers.ReadyListController}!ReadyListController@{ReadyListController}}
+\index{ReadyListController@{ReadyListController}!SiteRBC.Controllers.ReadyListController@{SiteRBC.Controllers.ReadyListController}}
+\doxysubsubsection{\texorpdfstring{ReadyListController()}{ReadyListController()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_ready_list_controller_a3a34d318af71dd116f51d958a268f713} 
+Site\+RBC.\+Controllers.\+Ready\+List\+Controller.\+Ready\+List\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_site_r_b_c_context}{Site\+RBCContext}}}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \doxylink{class_site_r_b_c_1_1_controllers_1_1_ready_list_controller}{Ready\+List\+Controller}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & Database context of type \doxylink{class_site_r_b_c_context}{Site\+RBCContext}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_ready_list_controller_a8fd77c026dfc4d5dbc4bd939b6e40d91}\index{SiteRBC.Controllers.ReadyListController@{SiteRBC.Controllers.ReadyListController}!Product@{Product}}
+\index{Product@{Product}!SiteRBC.Controllers.ReadyListController@{SiteRBC.Controllers.ReadyListController}}
+\doxysubsubsection{\texorpdfstring{Product()}{Product()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_ready_list_controller_a8fd77c026dfc4d5dbc4bd939b6e40d91} 
+async Task$<$ IAction\+Result $>$ Site\+RBC.\+Controllers.\+Ready\+List\+Controller.\+Product (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the list of ready products from the database. 
+
+\begin{DoxyReturn}{Returns}
+View containing the list of products. 
+\end{DoxyReturn}
+\Hypertarget{class_site_r_b_c_1_1_controllers_1_1_ready_list_controller_abc5481927b9e156558b906517f57a9bf}\index{SiteRBC.Controllers.ReadyListController@{SiteRBC.Controllers.ReadyListController}!SaveUserInfo@{SaveUserInfo}}
+\index{SaveUserInfo@{SaveUserInfo}!SiteRBC.Controllers.ReadyListController@{SiteRBC.Controllers.ReadyListController}}
+\doxysubsubsection{\texorpdfstring{SaveUserInfo()}{SaveUserInfo()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_controllers_1_1_ready_list_controller_abc5481927b9e156558b906517f57a9bf} 
+async Task$<$ IAction\+Result $>$ Site\+RBC.\+Controllers.\+Ready\+List\+Controller.\+Save\+User\+Info (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_site_r_b_c_1_1_models_1_1_data_1_1_users_info}{Users\+Info}}}]{user\+Info}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Saves user information into the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Info} & Object of type \doxylink{class_site_r_b_c_1_1_models_1_1_data_1_1_users_info}{Users\+Info} containing user details. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSON response with a message indicating the operation result. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Site\+RBC/\+Controllers/Ready\+List\+Controller.\+cs\end{DoxyCompactItemize}

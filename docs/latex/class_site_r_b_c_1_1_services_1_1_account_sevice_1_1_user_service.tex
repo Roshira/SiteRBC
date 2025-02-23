@@ -1,0 +1,129 @@
+\doxysection{Site\+RBC.\+Services.\+Account\+Sevice.\+User\+Service Class Reference}
+\hypertarget{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service}{}\label{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service}\index{SiteRBC.Services.AccountSevice.UserService@{SiteRBC.Services.AccountSevice.UserService}}
+
+
+Provides implementation of user-\/related operations such as authentication, registration, and retrieving user profiles.  
+
+
+Inheritance diagram for Site\+RBC.\+Services.\+Account\+Sevice.\+User\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service_a3521cc63d5f09b1c576375af9dca7677}{User\+Service}} (\mbox{\hyperlink{class_site_r_b_c_context}{Site\+RBCContext}} context)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service}{User\+Service}. \end{DoxyCompactList}\item 
+async Task$<$ \mbox{\hyperlink{class_site_r_b_c_1_1_models_1_1_data_1_1_users}{Users}}?$>$ \mbox{\hyperlink{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service_a76a58e597f6455fb8145fecd22979d38}{Authenticate\+User}} (string email, string password)
+\begin{DoxyCompactList}\small\item\em Authenticates a user based on their email and password. \end{DoxyCompactList}\item 
+async Task$<$ bool $>$ \mbox{\hyperlink{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service_aff149373d2204081ddb15d11e2668c8d}{Register\+User}} (\mbox{\hyperlink{class_site_r_b_c_1_1_models_1_1_sign_in_and_up_users_1_1_register_view_model}{Register\+View\+Model}} model)
+\begin{DoxyCompactList}\small\item\em Registers a new user in the system. \end{DoxyCompactList}\item 
+async Task$<$ \mbox{\hyperlink{class_site_r_b_c_1_1_models_1_1_sign_in_and_up_users_1_1_user_profile_view_model}{User\+Profile\+View\+Model}}?$>$ \mbox{\hyperlink{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service_a47c9b36c238db942652efbf2b2a8f220}{Get\+User\+Profile}} (string email)
+\begin{DoxyCompactList}\small\item\em Retrieves the profile of a user based on their email address. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides implementation of user-\/related operations such as authentication, registration, and retrieving user profiles. 
+
+This service class implements the methods defined in the \doxylink{interface_site_r_b_c_1_1_services_1_1_account_sevice_1_1_i_user_service}{IUser\+Service} interface to handle user authentication, registration, and profile management, interacting with the database through the \doxylink{class_site_r_b_c_context}{Site\+RBCContext}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service_a3521cc63d5f09b1c576375af9dca7677}\index{SiteRBC.Services.AccountSevice.UserService@{SiteRBC.Services.AccountSevice.UserService}!UserService@{UserService}}
+\index{UserService@{UserService}!SiteRBC.Services.AccountSevice.UserService@{SiteRBC.Services.AccountSevice.UserService}}
+\doxysubsubsection{\texorpdfstring{UserService()}{UserService()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service_a3521cc63d5f09b1c576375af9dca7677} 
+Site\+RBC.\+Services.\+Account\+Sevice.\+User\+Service.\+User\+Service (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_site_r_b_c_context}{Site\+RBCContext}}}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \doxylink{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service}{User\+Service}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The database context for interacting with the application’s data. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service_a76a58e597f6455fb8145fecd22979d38}\index{SiteRBC.Services.AccountSevice.UserService@{SiteRBC.Services.AccountSevice.UserService}!AuthenticateUser@{AuthenticateUser}}
+\index{AuthenticateUser@{AuthenticateUser}!SiteRBC.Services.AccountSevice.UserService@{SiteRBC.Services.AccountSevice.UserService}}
+\doxysubsubsection{\texorpdfstring{AuthenticateUser()}{AuthenticateUser()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service_a76a58e597f6455fb8145fecd22979d38} 
+async Task$<$ \mbox{\hyperlink{class_site_r_b_c_1_1_models_1_1_data_1_1_users}{Users}}?$>$ Site\+RBC.\+Services.\+Account\+Sevice.\+User\+Service.\+Authenticate\+User (\begin{DoxyParamCaption}\item[{string}]{email}{, }\item[{string}]{password}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Authenticates a user based on their email and password. 
+
+This method retrieves the user by email and verifies the provided password against the stored hashed password.
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email address of the user attempting to authenticate. \\
+\hline
+{\em password} & The password entered by the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the asynchronous operation, with a nullable {\ttfamily \doxylink{class_site_r_b_c_1_1_models_1_1_data_1_1_users}{Users}} object as the result. Returns the {\ttfamily \doxylink{class_site_r_b_c_1_1_models_1_1_data_1_1_users}{Users}} object if authentication is successful, otherwise returns null. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_site_r_b_c_1_1_services_1_1_account_sevice_1_1_i_user_service_a47a90778fe4ba9773969c900f01adf08}{Site\+RBC.\+Services.\+Account\+Sevice.\+IUser\+Service}}.
+
+\Hypertarget{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service_a47c9b36c238db942652efbf2b2a8f220}\index{SiteRBC.Services.AccountSevice.UserService@{SiteRBC.Services.AccountSevice.UserService}!GetUserProfile@{GetUserProfile}}
+\index{GetUserProfile@{GetUserProfile}!SiteRBC.Services.AccountSevice.UserService@{SiteRBC.Services.AccountSevice.UserService}}
+\doxysubsubsection{\texorpdfstring{GetUserProfile()}{GetUserProfile()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service_a47c9b36c238db942652efbf2b2a8f220} 
+async Task$<$ \mbox{\hyperlink{class_site_r_b_c_1_1_models_1_1_sign_in_and_up_users_1_1_user_profile_view_model}{User\+Profile\+View\+Model}}?$>$ Site\+RBC.\+Services.\+Account\+Sevice.\+User\+Service.\+Get\+User\+Profile (\begin{DoxyParamCaption}\item[{string}]{email}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the profile of a user based on their email address. 
+
+This method fetches the user\textquotesingle{}s profile information from the database, including their full name and email.
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email address of the user whose profile is to be retrieved. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the asynchronous operation, with a nullable {\ttfamily \doxylink{class_site_r_b_c_1_1_models_1_1_sign_in_and_up_users_1_1_user_profile_view_model}{User\+Profile\+View\+Model}} object as the result. Returns null if the user does not exist. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_site_r_b_c_1_1_services_1_1_account_sevice_1_1_i_user_service_a4eccfc84a048c007bbaaacbeab403d5a}{Site\+RBC.\+Services.\+Account\+Sevice.\+IUser\+Service}}.
+
+\Hypertarget{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service_aff149373d2204081ddb15d11e2668c8d}\index{SiteRBC.Services.AccountSevice.UserService@{SiteRBC.Services.AccountSevice.UserService}!RegisterUser@{RegisterUser}}
+\index{RegisterUser@{RegisterUser}!SiteRBC.Services.AccountSevice.UserService@{SiteRBC.Services.AccountSevice.UserService}}
+\doxysubsubsection{\texorpdfstring{RegisterUser()}{RegisterUser()}}
+{\footnotesize\ttfamily \label{class_site_r_b_c_1_1_services_1_1_account_sevice_1_1_user_service_aff149373d2204081ddb15d11e2668c8d} 
+async Task$<$ bool $>$ Site\+RBC.\+Services.\+Account\+Sevice.\+User\+Service.\+Register\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_site_r_b_c_1_1_models_1_1_sign_in_and_up_users_1_1_register_view_model}{Register\+View\+Model}}}]{model}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Registers a new user in the system. 
+
+This method checks if the user already exists by email. If not, it hashes the password and creates a new user record.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & The registration view model containing the user\textquotesingle{}s details. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the asynchronous operation, with a boolean indicating success or failure. Returns true if registration is successful, false if the email is already in use. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_site_r_b_c_1_1_services_1_1_account_sevice_1_1_i_user_service_ab2d613f7b6f056f9b6b95bfb530cbd61}{Site\+RBC.\+Services.\+Account\+Sevice.\+IUser\+Service}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Site\+RBC/\+Services/\+Account\+Sevice/User\+Service.\+cs\end{DoxyCompactItemize}
