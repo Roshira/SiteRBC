@@ -2,6 +2,10 @@
 
 namespace SiteRBC.Models.Data
 {
+    /**
+    * @class ReadyProduct
+    * @brief Represents a Users  with various properties.
+    */
     public class Users
     {
         public int Id { get; set; }

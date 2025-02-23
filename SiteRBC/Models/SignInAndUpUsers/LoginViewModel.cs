@@ -1,7 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace SiteRBC.Models.SignInAndUpUsers
-{
+{ /**
+     * @class ReadyProduct
+     * @brief Represents for do.
+
+     */
     public class LoginViewModel
     {
         [Required]

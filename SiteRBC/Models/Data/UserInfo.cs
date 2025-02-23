@@ -3,6 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SiteRBC.Models.Data
 {
+    /**
+    * @class ReadyProduct
+    * @brief Represents a Users information with various properties.
+    * 
+    */
     public class UsersInfo
     {
         public int Id { get; set; }

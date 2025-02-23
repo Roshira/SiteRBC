@@ -6,7 +6,11 @@ using SiteRBC.Models.AIModels;
 
 namespace SiteRBC.Controllers.ProductCalc
 {
-	public class ProductCalcController : Controller
+    /**
+    * @class AccountsController
+    * @brief Controller isn't do.
+    */
+    public class ProductCalcController : Controller
 	{
 		private readonly HttpClient _httpClient;
 		private readonly string _apiKey;
