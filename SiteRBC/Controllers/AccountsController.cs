@@ -8,21 +8,22 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using SiteRBC.Services.AccountSevice;
 
 namespace SiteRBC.Controllers
 {
 	public class AccountsController : Controller
 	{
 
-		private readonly SiteRBCContext _context;
+        private readonly IUserService _userService;
 
-		public AccountsController(SiteRBCContext context)
-		{
-			_context = context;
-		}
+        public AccountsController(IUserService userService)
+        {
+            _userService = userService;
+        }
 
 
-		[HttpGet]
+        [HttpGet]
 		public IActionResult SignInAndUpUsers()
 		{
 			return View();
@@ -30,36 +31,32 @@ namespace SiteRBC.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Login(LoginViewModel model)
 		{
-			if (!ModelState.IsValid)
-			{
-				TempData["Error"] = "Please fill in all fields correctly.";
-				return RedirectToAction("SignInAndUpUsers");
-			}
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = "Please fill in all fields correctly.";
+                return RedirectToAction("SignInAndUpUsers");
+            }
 
-			// Знаходимо користувача за email
-			var user = _context.Users.FirstOrDefault(u => u.Email == model.Email);
-			if (user == null || !BCrypt.Net.BCrypt.Verify(model.Password, user.Password))
-			{
-				TempData["Error"] = "Invalid email or password.";
-				return RedirectToAction("SignInAndUpUsers");
-			}
+            var user = await _userService.AuthenticateUser(model.Email, model.Password);
+            if (user == null)
+            {
+                TempData["Error"] = "Invalid email or password.";
+                return RedirectToAction("SignInAndUpUsers");
+            }
 
-			// Створення Claims
-			var claims = new List<Claim>
-			{
-			new Claim(ClaimTypes.Name, user.FullName),
-			new Claim(ClaimTypes.Email, user.Email),
-			new Claim(ClaimTypes.Role, user.Role),
-			new Claim("UserId", user.Id.ToString()) // Зберігаємо Id користувача
-			};
+            var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.Name, user.FullName),
+        new Claim(ClaimTypes.Email, user.Email),
+        new Claim(ClaimTypes.Role, user.Role),
+        new Claim("UserId", user.Id.ToString())
+    };
 
-			// Створення ClaimsIdentity
-			var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
 
-			// Аутентифікація користувача
-			await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-			return RedirectToAction("Profile");
-		}
+            return RedirectToAction("Profile");
+        }
 
         [HttpPost]
         public virtual async Task<IActionResult> Register(RegisterViewModel model) // Додайте `async` і повертайте `Task<IActionResult>`
@@ -70,26 +67,11 @@ namespace SiteRBC.Controllers
                 return RedirectToAction("SignInAndUpUsers");
             }
 
-            var existingUserEmail = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email); // Використовуйте `FirstOrDefaultAsync`
-            var existingUserName = await _context.Users.FirstOrDefaultAsync(u => u.FullName == model.FullName); // Використовуйте `FirstOrDefaultAsync`
-            if (existingUserEmail != null || existingUserName != null)
+            if (!await _userService.RegisterUser(model))
             {
                 TempData["Error"] = "Email or name already registered.";
                 return RedirectToAction("SignInAndUpUsers");
             }
-
-            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(model.Password);
-
-            var user = new Users
-            {
-                FullName = model.FullName,
-                Email = model.Email,
-                Password = hashedPassword,
-                Role = model.Role ?? "User"
-            };
-
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync(); // Використовуйте `SaveChangesAsync`
 
             TempData["Success"] = "Registration successful! You can now log in.";
             return RedirectToAction("Tour", "Home");

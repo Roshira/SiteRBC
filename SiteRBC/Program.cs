@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using SiteRBC.Models.AIModels;
+using SiteRBC.Services.AccountSevice;
 
 internal class Program
 {
@@ -11,7 +12,7 @@ internal class Program
         // Додаємо підтримку сесій
         builder.Services.AddSession();
         builder.Services.AddHttpClient();
-
+        builder.Services.AddScoped<IUserService, UserService>();
         // Додаємо аутентифікацію через Cookies
         builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options =>
