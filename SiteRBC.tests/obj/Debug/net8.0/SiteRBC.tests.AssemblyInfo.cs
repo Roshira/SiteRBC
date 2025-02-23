@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SiteRBC.tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+89bbda7bcfa692ba78b5f4f1f5977e045aa88458")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f65870fc1106241abb632abf1d473a5f9aa24181")]
 [assembly: System.Reflection.AssemblyProductAttribute("SiteRBC.tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SiteRBC.tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

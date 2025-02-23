@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Runtime.CompilerServices;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SiteRBC.Models.Data
 {
@@ -18,5 +18,8 @@ namespace SiteRBC.Models.Data
         [Required]
         [MaxLength(14)]
         public string Number { get; set; }
+
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

@@ -21,5 +21,20 @@ namespace SiteRBC.Controllers
             List<ReadyProduct> products = await _context.Products.ToListAsync();
             return View(products);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> SaveUserInfo([FromBody] UsersInfo userInfo)
+        {
+            if (userInfo == null || string.IsNullOrEmpty(userInfo.Number))
+            {
+                return Json(new { message = "Invalid data" });
+            }
+
+            // Збереження в базу
+            _context.UsersInfo.Add(userInfo);
+            await _context.SaveChangesAsync();
+
+            return Json(new { message = "Your request has been saved!" });
+        }
     }
 }

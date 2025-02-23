@@ -1,9 +1,13 @@
-﻿@model IEnumerable<SiteRBC.Models.Data.ReadyProduct>
+﻿@using Microsoft.AspNetCore.Identity
+@using SiteRBC.Models.Data
+@model IEnumerable<SiteRBC.Models.Data.ReadyProduct>
+
 <!DOCTYPE html>
 <html lang="en">
 @{
 	ViewData["Title"] = "ReadyShelter";
 }
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,8 +91,10 @@
 		</div>
 	</main>
 	<div id="phoneIcon" class="phone-popup">
-		<input type="text" placeholder="Enter your phone number" />
-		<button onclick="submitPhoneNumber()">Send</button>
+		<input type="text" id="userName" placeholder="Enter your full name" />
+		<input type="email" id="userEmail" placeholder="Enter your email" />
+		<input type="text" id="userPhone" placeholder="Enter your phone number" />
+		<button onclick="submitUserInfo()">Send</button>
 	</div>
 
 	<script>
@@ -96,17 +102,41 @@
 			document.getElementById("phoneIcon").style.display = "block";
 		}
 
-		function submitPhoneNumber() {
-			var phoneNumber = document.querySelector("#phoneIcon input").value;
-			if (phoneNumber.trim() === "") {
-				alert("Please enter your phone number.");
-			} else {
-				alert("Number was sent: " + phoneNumber);
+		async function submitUserInfo() {
+			let fullName = document.getElementById("userName").value.trim();
+			let email = document.getElementById("userEmail").value.trim();
+			let phoneNumber = document.getElementById("userPhone").value.trim();
+
+			if (!fullName || !email || !phoneNumber) {
+				alert("Please enter all required fields.");
+				return;
+			}
+
+			let userInfo = {
+				fullName: fullName,
+				email: email,
+				number: phoneNumber
+			};
+
+			try {
+				let response = await fetch('/ReadyList/SaveUserInfo', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(userInfo)
+				});
+
+				let result = await response.json();
+				alert(result.message);
 				document.getElementById("phoneIcon").style.display = "none";
-				// Optionally, send the phone number to the server here
+			} catch (error) {
+				console.error("Error saving user info:", error);
+				alert("Failed to send data.");
 			}
 		}
 	</script>
+
 
 </body>
 </html>
